@@ -1,0 +1,122 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Farmer Government Aided Schemes</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+        }
+
+        header {
+            background-color: #4CAF50;
+            color: #fff;
+            padding: 20px;
+            text-align: center;
+        }
+
+        nav ul {
+            list-style: none;
+            margin: 0;
+            padding: 0;
+            display: flex;
+            justify-content: space-between;
+        }
+
+        nav li {
+            margin-right: 20px;
+        }
+
+        nav a {
+            color: #337ab7;
+            text-decoration: none;
+        }
+
+        main {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            padding: 20px;
+        }
+
+        section {
+            background-color: #f7f7f7;
+            padding: 20px;
+            margin-bottom: 20px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+        }
+
+        h2 {
+            margin-top: 0;
+        }
+
+        button {
+            background-color: #4CAF50;
+            color: #fff;
+            border: none;
+            padding: 10px 20px;
+            font-size: 16px;
+            cursor: pointer;
+        }
+
+        button:hover {
+            background-color: #3e8e41;
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <h1>Farmer Government Aided Schemes</h1>
+    </header>
+    <nav>
+        <ul>
+            <li><a href="#schemes">Schemes</a></li>
+            <li><a href="#eligibility">Eligibility</a></li>
+            <li><a href="#apply">Apply</a></li>
+        </ul>
+    </nav>
+    <main>
+        <section id="schemes">
+            <h2>Government Schemes for Farmers</h2>
+            <ul>
+                <li>Pradhan Mantri Kisan Samman Nidhi (PM-KISAN)</li>
+                <li>Pradhan Mantri Fasal Bima Yojana (PMFBY)</li>
+                <li>National Agriculture Market (e-NAM)</li>
+                <li>Soil Health Card Scheme</li>
+            </ul>
+        </section>
+        <section id="eligibility">
+            <h2>Eligibility Criteria</h2>
+            <p>Check the eligibility criteria for each scheme:</p>
+            <button onclick="showEligibility('pmkisan')">PM-KISAN</button>
+            <button onclick="showEligibility('pmfby')">PMFBY</button>
+            <div id="eligibility-details"></div>
+        </section>
+        <section id="apply">
+            <h2>Apply for Schemes</h2>
+            <p>Apply online for the schemes you're eligible for:</p>
+            <button onclick="applyScheme('pmkisan')">PM-KISAN</button>
+            <button onclick="applyScheme('pmfby')">PMFBY</button>
+        </section>
+    </main>
+    <script>
+        function showEligibility(scheme) {
+            const eligibilityDetails = document.getElementById('eligibility-details');
+            if (scheme === 'pmkisan') {
+                eligibilityDetails.innerHTML = '<p>Small and marginal farmers with landholding up to 2 hectares.</p>';
+            } else if (scheme === 'pmfby') {
+                eligibilityDetails.innerHTML = '<p>Farmers who have taken loans for crops and have insurable interest.</p>';
+            }
+        }
+
+        function applyScheme(scheme) {
+            if (scheme === 'pmkisan') {
+                window.open('https://pmkisan.gov.in/', '_blank');
+            } else if (scheme === 'pmfby') {
+                window.open('https://pmfby.gov.in/', '_blank');
+            }
+        }
+    </script>
+</body>
+</html>
