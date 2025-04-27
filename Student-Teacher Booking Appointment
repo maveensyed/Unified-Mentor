@@ -1,0 +1,110 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Student-Teacher Booking Appointment</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+        }
+
+        #booking-form {
+            width: 50%;
+            margin: 40px auto;
+            padding: 20px;
+            border: 1px solid #ccc;
+            border-radius: 10px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+        }
+
+        label {
+            display: block;
+            margin-bottom: 10px;
+        }
+
+        input, select {
+            width: 100%;
+            height: 40px;
+            margin-bottom: 20px;
+            padding: 10px;
+            border: 1px solid #ccc;
+        }
+
+        button {
+            width: 100%;
+            height: 40px;
+            background-color: #4CAF50;
+            color: #fff;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+        }
+
+        button:hover {
+            background-color: #3e8e41;
+        }
+
+        #appointments {
+            margin-top: 40px;
+        }
+    </style>
+</head>
+<body>
+    <h1>Student-Teacher Booking Appointment</h1>
+    <form id="booking-form">
+        <label for="student-name">Student Name:</label>
+        <input type="text" id="student-name" required>
+        <label for="teacher-name">Teacher Name:</label>
+        <select id="teacher-name" required>
+            <option value="">Select Teacher</option>
+            <option value="John Doe">John Doe</option>
+            <option value="Jane Smith">Jane Smith</option>
+        </select>
+        <label for="appointment-date">Appointment Date:</label>
+        <input type="date" id="appointment-date" required>
+        <label for="appointment-time">Appointment Time:</label>
+        <input type="time" id="appointment-time" required>
+        <button id="book-appointment">Book Appointment</button>
+    </form>
+    <div id="appointments"></div>
+
+    <script>
+        let appointments = [];
+
+        document.getElementById('book-appointment').addEventListener('click', bookAppointment);
+
+        function bookAppointment(e) {
+            e.preventDefault();
+            const studentName = document.getElementById('student-name').value;
+            const teacherName = document.getElementById('teacher-name').value;
+            const appointmentDate = document.getElementById('appointment-date').value;
+            const appointmentTime = document.getElementById('appointment-time').value;
+
+            appointments.push({
+                studentName,
+                teacherName,
+                appointmentDate,
+                appointmentTime
+            });
+
+            displayAppointments();
+            document.getElementById('booking-form').reset();
+        }
+
+        function displayAppointments() {
+            const appointmentsDiv = document.getElementById('appointments');
+            appointmentsDiv.innerHTML = '';
+            appointments.forEach((appointment, index) => {
+                appointmentsDiv.innerHTML += `
+                    <p>Student Name: ${appointment.studentName}</p>
+                    <p>Teacher Name: ${appointment.teacherName}</p>
+                    <p>Appointment Date: ${appointment.appointmentDate}</p>
+                    <p>Appointment Time: ${appointment.appointmentTime}</p>
+                    <hr>
+                `;
+            });
+        }
+    </script>
+</body>
+</html>
